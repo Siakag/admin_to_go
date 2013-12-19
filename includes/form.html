@@ -1,0 +1,17 @@
+<input type="hidden">
+<label id='fnamelabel' for="fname">First Name</label><input type="text" name="fname" id="fname"><br>
+
+<label id='lnamelabel' for="lname">Last Name</label><input type="text" name="lname" id="lname"><br>
+
+<label id='pnumber0label' for="pnumber0">Phone Number</label>
+<input class='tels' type="tel" name="pnumber0" id="pnumber0" onkeypress='return isNum(event)' maxlength='3'>
+<input class='tels' type="tel" name="pnumber1" id="pnumber1" onkeypress='return isNum(event)' maxlength='3'>
+<input class='' type="tel" name="pnumber2" id="pnumber2" onkeypress='return isNum(event)' maxlength='4'><br>
+
+<label id='emaillabel' for="email">Email</label><input type="text" name="email" id="email"><br>
+
+<label id='messagelabel' for="message">Message</label><textarea name="message" id="message"></textarea><br>
+
+<input type="button" id="submit" value="Submit"><br>
+
+<div id="formError"></div>

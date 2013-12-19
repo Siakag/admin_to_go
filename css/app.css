@@ -1,0 +1,411 @@
+/*general*/
+@font-face {
+    font-family: Market;
+    src: url(fonts/market.ttf);
+    font-weight:400;
+}
+
+@font-face {
+    font-family: Roc;
+    src: url(fonts/rac.ttf);
+    font-weight:400;
+}
+
+@font-face {
+    font-family: Circula;
+    src: url(fonts/circula_medium.otf);
+    font-weight:400;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.top {
+  top: 0;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.notVisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+html {
+}
+
+body {
+  background: none repeat scroll 0 0 #C0392B;
+  color: #FFFFFF;
+  display: inline-block;
+  font-family: Circula;
+  height: 100%;
+}
+
+a, button, img, input, textarea {
+  outline: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+
+
+
+/*nav*/
+#nav {
+  left: 0;
+  padding: 2%;
+  position: fixed;
+  top: 28%;
+  width: 2%;
+}
+
+#nav li {
+  background: url("img/dot.png") no-repeat scroll 0 0 / 100% auto rgba(0, 0, 0, 0);
+  list-style: none outside none;
+}
+
+#nav a {
+  display: block;
+  height: 32px;
+  margin: 125% 0;
+  width: 100%;
+}
+
+#nav a:hover {
+  text-decoration: none;
+}
+
+#nav a:hover span {
+  background: #C0392B;
+  color: #ECF0F1;
+}
+
+#nav a span {
+  background: none repeat scroll 0 0 #204440;
+  border: 5px solid #FFFFFF;
+  color: #FFFFFF;
+  display: block;
+  font-size: 1.3em;
+  left: -10px;
+  line-height: 1.5em;
+  position: relative;
+  text-align: center;
+  top: -77px;
+  width: 94px;
+}
+
+
+
+
+/*main content*/
+#content {
+  margin: 10% 0 5% 4%;
+  width: 80%;
+}
+
+#content #adminToGo {
+  font-family: Roc;
+  font-size: 7em;
+  margin: -10% 5% 5% 5%;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#content .cards {
+  background: none repeat scroll 0 0 #204440;
+  border: 10px solid #000000;
+  font-size: 21px;
+  margin: 7.5% 20%;
+  padding: 2% 0%;
+}
+
+#content #contact {
+  padding-bottom: 0;
+}
+
+#content .cardHeader {
+  font-family: Roc;
+  margin: 2% 0.5% 0 5%;
+  text-align: left;
+}
+
+#content .cards p {
+  border-top: 1px solid #ECF0F1;
+  font-size: 21px;
+  line-height: 2em;
+  margin: 4%;
+  padding-top: 4%;
+}
+
+
+
+
+/*forms*/
+form {
+  background: none repeat scroll 0 0 #000000;
+  /*border: 10px solid #FFFFFF;*/
+  margin: 0;
+  padding: 8% 0 0;
+}
+
+form label {
+  display: inline-block;
+  margin-bottom: 5%;
+  padding-right: 3.5%;
+  text-align: right;
+  vertical-align: top;
+  width: 30%;
+}
+
+form input {
+  text-transform: uppercase;
+}
+
+form input,
+form textarea {
+  background: none repeat scroll 0 0 #000000;
+  border: 0;
+  border-bottom: 5px solid #FFF;
+  color: #FFFFFF;
+  padding: 0.3%;
+  width: 35%;
+}
+
+form input:focus,
+form textarea:focus {
+  /*color: #7f8c8d;*/
+}
+
+form #pnumber0,
+form #pnumber1 {
+  margin: 0 2% 0 -3px;
+  text-align: center;
+  width: 10%;
+}
+
+form #pnumber2 {
+  text-align: center;
+  width: 13%;
+}
+
+form #email {
+  width: 55%;
+}
+
+form textarea {
+  height: 110px;
+  line-height: 1.2em;
+  resize: none;
+  width: 55%;
+}
+
+form #submit {
+  background: none repeat scroll 0 0 #000000;
+  border: medium none;
+  color: #FFFFFF;
+  font-size: 1em;
+  margin: 3% 0;
+  padding: 1% 0;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+form #submit:hover {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+#formMessage {
+  background: none repeat scroll 0 0 #000000;
+  display: none;
+  font-size: 1.2em;
+  letter-spacing: 0.15em;
+  margin: 0;
+  padding: 5%;
+}
+#formError {
+  margin: 0 7% 0;
+  padding-bottom: 2%;
+}
+
+#underForm {
+  background: #000000;
+  display: none;
+}
+
+#loader {
+  background: url("img/ajax-loader.gif") no-repeat scroll 50% 50% / 35% auto #000000;
+  display: none;
+  font-size: 2em;
+  line-height: 5em;
+  min-height: 468px;
+  width: 100%;
+}
+
+#refreshForm {
+  display: none;
+  font-size: 1.2em;
+  letter-spacing: 0.15em;
+  line-height: 5em;
+  min-height: 137px;
+}
+
+#refreshForm a {
+  color: #204440;
+}
+
+#refreshForm, #loader, #formMessage {
+  text-align: center;
+}
+
+
+
+
+/*social*/
+#social {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-left: 15px solid #20504E;
+  height: 100%;
+  margin-right: 13%;
+  padding-top: 8%;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  vertical-align: middle;
+  width: 7%;
+}
+
+#social a img {
+  margin-bottom: 25%;
+  margin-left: -30%;
+  width: 100%;
+}
+
+#social a img:hover {
+  position: relative;
+  top: -5px;
+}
+
+
+
+
+/*footer*/
+#footer {
+  margin: 5% 0 5% 4%;
+  width: 80%;
+}
+
+#footer p {
+  background: none repeat scroll 0 0 #000000;
+  border: 10px solid #FFFFFF;
+  font-size: 1.1em;
+  margin: 0 20%;
+  padding: 1%;
+  text-align: center;
+}
+
+
+
+
+/*chrome specific*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+}
+
+
+
+
+/*ie9 specific*/
+
+.lt-ie10 #nav a span {
+  left: -20px !important;
+  width: 117px;
+}
+
+
+
+/*ie8 specific*/
+
+
+
+.lt-ie9 #footer p {
+  text-align: center !important;
+  width: 60% !important;
+}
+
+
+/*ie7 specific*/
+
+.lt-ie8 #adminToGo {
+  margin-top: 0px !important;
+}
+
+.lt-ie8 #content {
+  margin-top: 3%;
+  margin-bottom: 0;
+}
+
+.lt-ie8 form label {
+  margin-bottom: 2%;
+  width: 40%;
+}
+
+.lt-ie8 form #submit {
+  width: 121%;
+}
+
+.lt-ie8 form #submit:hover {
+  margin-left: -2px;
+  width: 122%;
+}
+
+.lt-ie8 #nav {
+  top: 18%;
+}
+
+.lt-ie8 #nav a {
+  margin-bottom: 0;
+}
+
+.lt-ie8 #nav a span {
+  left: -25px !important;
+  top: -110px;
+  width: 110px;
+}
+
+.lt-ie8 #footer p {
+  top: -112px;
+  margin-bottom: 5%;
+  width: 56% !important;
+}
