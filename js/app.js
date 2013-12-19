@@ -12,6 +12,19 @@ $(function ()
   });
 
   autoAdvance('.tels');
+
+  (function()
+  {
+    var navItems = $('#nav li a span');
+    $(navItems).click(function(event)
+    {
+      var maptoId = $(this).parent().data('mapto');
+      var to = $(maptoId).position().top;
+      $('html, body').animate({scrollTop: to}, 500);
+      console.log(to);
+      event.preventDefault();
+    })
+  })()
 })
 
 
@@ -23,7 +36,7 @@ function submitContactForm(form)
   var t = f.attr('method');
   var d = f.serialize();
   var fields = f.find('input, textarea');
-  fields.prop('disabled', true);
+  // fields.prop('disabled', true);
 
   $.post(u, d, function(data)
     {
@@ -47,7 +60,7 @@ function submitContactForm(form)
           $('#contactMe').find('input[type=text], input[type=tel], textarea').val('');
           $('#refreshForm').fadeIn();
           fields.prop('disabled', false);
-        }, 5000);
+        }, 3000);
     });
 }
 

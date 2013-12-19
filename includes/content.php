@@ -20,7 +20,14 @@
   </form>
   <div id="underForm">
     <div id="formMessage"></div>
-    <div id="loader">Please wait. Do not refresh.</div>
+    <!-- <div id="loader">Please wait. Do not refresh.</div> -->
+    <div class="spinner" id="loader">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
     <div id="refreshForm">Click <a href='#' id='refreshFormTag'>here</a> to refresh the form.</div>
   </div>
 </div>
