@@ -195,6 +195,14 @@ a:hover {
   text-decoration: underline;
 }
 
+#content h3#sl {
+  font-family: Roc;
+  font-size: 5em;
+  margin: -6% 5% 5% 5%;
+  text-align: center;
+  text-decoration: underline;
+}
+
 #content .cards {
   background: none repeat scroll 0 0 #204440;
   border: 10px solid #000000;

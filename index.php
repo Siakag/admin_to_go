@@ -9,9 +9,9 @@
 <!-- <![endif] -->
 
 <head>
-  <title></title>
+  <title>Robin's Desk - Admin to Go</title>
   <meta charset="UTF-8">
-  <meta>
+  <meta >
   <?php
     include('includes/css.html');
   ?>
