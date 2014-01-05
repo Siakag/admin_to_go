@@ -18,9 +18,18 @@
 <?php
     include('includes/css.html');
 ?>
+
+  <!-- GA code -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46849379-1', 'robins-desk.com');
+    ga('send', 'pageview');
+  </script>
 </head>
-
-
 
 <body>
   <div class='row small-12 large-2 left' id='nav'>
@@ -29,7 +38,6 @@
 ?>
   </div>
   <!-- end left content -->
-
 
   <div class='row small-12 large-10 right'>
     <div id='content'>
@@ -47,8 +55,6 @@
   <!-- end right content -->
 
 </body>
-
-
 
 <!-- js include -->
 <?php
