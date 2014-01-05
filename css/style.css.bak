@@ -75,7 +75,7 @@ html {
 }
 
 body {
-  background: none repeat scroll 0 0 #C0392B;
+  background: none repeat scroll 0 0 #B02920;
   color: #FFFFFF;
   display: inline-block;
   font-family: Circula;
@@ -230,7 +230,7 @@ a:hover {
 form {
   background: none repeat scroll 0 0 #000000;
   margin: 0;
-  padding: 8% 0 0;
+  padding: 30px 0 0;
   position: relative;
 }
 
@@ -277,7 +277,7 @@ form #pnumber1 {
 form #pnumber2 {
   margin: 0 0.5%;
   text-align: center;
-  width: 14% !important;
+  width: 20% !important;
 }
 
 form #email {
@@ -396,7 +396,7 @@ form #submit:hover {
 /****************** ie7 specific *******************/
 
 
-/****************** 1024px & less *******************/
+/****************** 1025px & higher *******************/
 @media screen and (min-width : 1025px) {
 #nav li {
   display: block !important;
@@ -488,12 +488,16 @@ form #submit:hover {
 /****************** form *******************/
 form label {
   font-size: 1rem;
+  position: relative;
+  top: 10px;
 }
 
 .lt-ie10 form label {
   font-size: 0.9rem;
 }
 }
+
+
 /****************** 560px & less *******************/
 @media screen and (max-width : 560px) {
 /****************** header *******************/
@@ -506,9 +510,16 @@ form label {
   margin-top: -22px;
 }
 
+/****************** content *******************/
+#content .cardHeader {
+  font-size: 1.7rem;
+}
+
 /****************** form *******************/
 form label {
   font-size: 0.7rem;
+  position: relative;
+  top: 20px;
 }
 
 .lt-ie10 form label {
@@ -532,4 +543,9 @@ form label {
 #nav li a {
   font-size: 0.8rem;
 }
+}
+
+form label {
+  position: relative;
+  top: 25px;
 }
