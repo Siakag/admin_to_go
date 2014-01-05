@@ -1,1 +1,171 @@
-function submitContactForm(e){var t=$(e);var n=t.attr("action");var r=t.attr("method");var i=t.serialize();var s=t.find("input, textarea");$.post(n,i,function(e){$("#contactMe").fadeOut()}).done(function(){console.log("success")}).fail(function(){console.log("failed")}).always(function(e){$("#loader").hide();$("#formMessage").html(e).fadeIn();console.log("always");setTimeout(function(){$("#contactMe").find("input[type=text], input[type=tel], textarea").val("");$("#refreshForm").fadeIn();s.prop("disabled",false)},3e3)})}function checkFields(e){var t=$(e);var n=t.serializeArray();var r;var i="";var s=true;for(r=0;r<n.length;r++){var o="#"+n[r].name+"label";var u=$(o).text();if(n[r].value===""||n[r].value===null){if(o==="#pnumber0label"||o==="#pnumber1label"||o==="#pnumber2label"){u="Phone number";i+=u+" is invalid. Please enter a complete phone number including area code.";s=false;$("#formError").html(i);return s}else{s=false;i+=u+" field is required.";$("#formError").html(i);return s}}}return s}function isNum(e){var t=e.which||e.keyCode;if(t>31&&(t<48||t>57))return false;return true}function autoAdvance(e){var t=e;$(t).keyup(function(e){if($(this).val().length===$(this).prop("maxlength")){if(e.keyCode===16||e.keyCode===9)return;$(this).next().focus()}})}function pNumValidLength(e,t,n){a=$.trim($(e).val()).length;p=$.trim($(t).val()).length;l=$.trim($(n).val()).length;goodNums=a===3&&p===3&&l===4?true:false;if(goodNums){return true}err="Phone number is invalid. Please enter a complete phone number including area code.";$("#formError").show().html(err);return false}$(function(){$("#contactMe > #submit").click(function(e){if(checkFields("#contactMe")&&pNumValidLength("#pnumber0","#pnumber1","#pnumber2")){$("#formError").html("");submitContactForm("#contactMe");$("#contactMe").hide();$("#underForm, #loader").show()}});autoAdvance(".tels");(function(){var e=$("#nav li a");$(e).on("click",function(e){e.preventDefault();var t=$(this).data("mapto");var n=$(t).position().top;$("html, body").animate({scrollTop:n},500)})})();$(".menu").click(function(){$(this).parent().children("li").toggle(500)})});(function(){$("#refreshFormTag").click(function(e){$("#contactMe").fadeIn();$("#underForm, #formMessage, #refreshForm").hide();e.preventDefault()})})()
+$(function ()
+{
+  //
+  $('#contactMe > #submit').click(function(event)
+  {
+    if( checkFields('#contactMe') && pNumValidLength('#pnumber0', '#pnumber1', '#pnumber2') )
+    {
+      $('#formError').html('');
+      submitContactForm('#contactMe');
+      $('#contactMe').hide();
+      $('#underForm, #loader').show();
+    }
+  });
+
+
+  //
+  autoAdvance('.tels');
+
+
+  //
+  (function()
+  {
+    var navItems = $('#nav li a');
+    $(navItems).on('click', function(event)
+    {
+      event.preventDefault();
+      var maptoId = $(this).data('mapto');
+      var to = $(maptoId).offset().top;
+      $('html, body').animate({scrollTop: to}, 500);
+    })
+  }())
+
+
+  // menu click handler
+  $('.menu').click(function()
+  {
+    $(this).parent().children('li').toggle(500);
+  })
+
+
+  // window resize
+  // alert($(window).width());
+})
+
+
+// submit contact form
+function submitContactForm(form)
+{
+  var f = $(form);
+  var u = f.attr('action');
+  var t = f.attr('method');
+  var d = f.serialize();
+  var fields = f.find('input, textarea');
+  // fields.prop('disabled', true);
+
+  $.post(u, d, function(data)
+    {
+      $('#contactMe').fadeOut();
+    })
+    .done(function()
+    {
+      console.log('success');
+    })
+    .fail(function()
+    {
+      console.log('failed');
+    })
+    .always(function(data)
+    {
+      $('#loader').hide();
+      $('#formMessage').html(data).fadeIn();
+      console.log('always');
+      setTimeout(function()
+        {
+          $('#contactMe').find('input[type=text], input[type=tel], textarea').val('');
+          $('#refreshForm').fadeIn();
+          fields.prop('disabled', false);
+        }, 3000);
+    });
+}
+
+
+// check for empty fields
+function checkFields(form)
+{
+  var f = $(form);
+  var fields = f.serializeArray();
+  var i;
+  var err = '';
+  var pass = true;
+
+  for(i = 0; i < fields.length; i++ )
+  {
+    var labelName = '#' + fields[i].name + 'label';
+    var labelText = $(labelName).text();
+
+    if(fields[i].value === '' || fields[i].value === null)
+    {
+      if(labelName === '#pnumber0label' || labelName === '#pnumber1label' || labelName === '#pnumber2label')
+      {
+        labelText = 'Phone number';
+        err += labelText + " is invalid. Please enter a complete phone number including area code.";
+        pass = false;
+        $('#formError').html(err);
+        return pass;
+      }
+      else
+      {
+        pass = false;
+        err += labelText + " field is required.";
+        $('#formError').html(err);
+        return pass;
+      }
+    }
+  }
+  return pass;
+}
+
+
+// numeric input only
+function isNum(e)
+{
+  var charCode = e.which || e.keyCode;
+  if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+
+  return true;
+}
+
+// auto advance input
+function autoAdvance(els)
+{
+  var e = els;
+  $(e).keyup(function(event)
+  {
+    if($(this).val().length === $(this).prop('maxlength'))
+    {
+      if(event.keyCode === 16 || event.keyCode === 9) return;
+
+      $(this).next().focus();
+    }
+  })
+}
+
+
+// phone number length checks
+function pNumValidLength(area, prefix, last)
+{
+  a = $.trim( $(area).val() ).length;
+  p = $.trim( $(prefix).val() ).length;
+  l = $.trim( $(last).val() ).length;
+  goodNums = (a === 3 && p === 3 && l === 4) ? true : false;
+
+  if(goodNums)
+  {
+    return true;
+  }
+
+  err = "Phone number is invalid. Please enter a complete phone number including area code.";
+  $('#formError').show().html(err);
+  return false;
+}
+
+(function refreshFormTag()
+{
+  $('#refreshFormTag').click(function(event)
+  {
+    $('#contactMe').fadeIn();
+    $('#underForm, #formMessage, #refreshForm').hide();
+    event.preventDefault();
+  })
+})()
