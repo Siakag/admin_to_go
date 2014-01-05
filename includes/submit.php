@@ -73,18 +73,18 @@ MESSAGE;
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup server
     $mail->Port = 587;
+    $mail->Username = '**********@gmail.com';                            // SMTP username
+    $mail->Password = '**********';                           // SMTP password
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = '********@****.com';                            // SMTP username
-    $mail->Password = '********';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
 
     // $mail->SMTPDebug = 1;                        // Add debug info
 
     $mail->From = $from;
-    $mail->FromName = 'Admin To Go';
-    $mail->addAddress($to, 'Admin To Go');  // Add a recipient
+    $mail->FromName = "Robin's Desk";
+    $mail->addAddress($to, "Robin's Desk");  // Add a recipient
     // $mail->addAddress('ellen@example.com');               // Name is optional
-    $mail->addReplyTo('admin@donotreply.com', 'Admin To Go');
+    $mail->addReplyTo('admin@donotreply.com', "Robin's Desk");
     // $mail->addCC('cc@example.com');
     // $mail->addBCC('bcc@example.com');
 
@@ -98,7 +98,7 @@ MESSAGE;
     $mail->AltBody = $message;
 
     if(!$mail->send()) {
-       echo 'Message could not be sent.';
+       echo 'Message could not be sent. ';
        echo 'Mailer Error: ' . $mail->ErrorInfo;
        exit;
     }
