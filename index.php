@@ -13,7 +13,6 @@
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
   <link type='image/x-icon' href='css/favicon.ico' rel='shortcut icon'>
   <link type='image/x-icon' href='css/favicon.ico' rel='icon'>
-  <script type="text/javascript" src="js/libs/modernizr.js"></script>
 
 <!-- css include -->
 <?php
